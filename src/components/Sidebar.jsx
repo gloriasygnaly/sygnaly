@@ -8,8 +8,8 @@ import {
   MessageSquare,
   Settings,
   HelpCircle,
-  Shield,
 } from 'lucide-react'
+import sygnalyIcon from '../assets/sygnaly-icon.svg'
 
 const navSections = [
   {
@@ -44,13 +44,13 @@ export default function Sidebar() {
       style={{ width: 224, background: '#0F3D6E' }}
     >
       {/* Logo */}
-      <div className="flex items-center gap-2 px-5 py-5 border-b border-white/10">
-        <div
-          className="flex items-center justify-center rounded-lg w-8 h-8 shrink-0"
-          style={{ background: '#185FA5' }}
-        >
-          <Shield size={16} color="white" />
-        </div>
+      <div className="flex items-center gap-3 px-4 py-4 border-b border-white/10">
+        <img
+          src={sygnalyIcon}
+          alt="Sygnaly icon"
+          className="shrink-0"
+          style={{ width: 28, height: 34 }}
+        />
         <div className="leading-tight">
           <span className="text-white font-bold text-base tracking-wide">Sygnaly</span>
           <p className="text-white/50 text-[10px] font-normal">conectar para mejorar</p>
