@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #185FA5;
+  --color-danger: #E24B4A;
+  --color-warning: #EF9F27;
+  --color-teal: #1D9E75;
+  --color-purple: #534AB7;
+  --color-sidebar: #0F3D6E;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #F0F4F8;
+}
+
+#root {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
