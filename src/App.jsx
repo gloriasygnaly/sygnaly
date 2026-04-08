@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard'
 import Colaboradores from './pages/Colaboradores'
 import ColaboradorDetalle from './pages/ColaboradorDetalle'
 import MapaSenales from './pages/MapaSenales'
+import OrientacionPreventiva from './pages/OrientacionPreventiva'
 import Placeholder from './pages/Placeholder'
 
 export default function App() {
@@ -15,7 +16,7 @@ export default function App() {
           <Route path="/"            element={<Dashboard />} />
           <Route path="/alertas"     element={<Placeholder title="Alertas preventivas" />} />
           <Route path="/acciones"    element={<Placeholder title="Acciones remediales" />} />
-          <Route path="/orientacion" element={<Placeholder title="Orientación preventiva" />} />
+          <Route path="/orientacion" element={<OrientacionPreventiva />} />
 
           {/* Colaboradores */}
           <Route path="/colaboradores"          element={<Colaboradores />} />
