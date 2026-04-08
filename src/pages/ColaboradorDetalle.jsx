@@ -469,6 +469,10 @@ export default function ColaboradorDetalle() {
                   </div>
                 ))}
               </div>
+              <div className="flex items-start gap-1.5 mt-3 pt-3 border-t border-gray-100">
+                <Calculator size={12} className="text-gray-400 shrink-0 mt-0.5" />
+                <p className="text-[11px] text-gray-400 leading-snug">{NOTA_CALCULOS}</p>
+              </div>
             </div>
           </div>
 
