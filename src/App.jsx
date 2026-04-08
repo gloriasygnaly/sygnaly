@@ -10,15 +10,33 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/riesgos" element={<Placeholder title="Gestión de Riesgos" />} />
-          <Route path="/colaboradores" element={<Colaboradores />} />
-          <Route path="/colaboradores/:id" element={<ColaboradorDetalle />} />
-          <Route path="/formularios" element={<Placeholder title="Formularios" />} />
-          <Route path="/reportes" element={<Placeholder title="Reportes" />} />
-          <Route path="/comunicaciones" element={<Placeholder title="Comunicaciones" />} />
-          <Route path="/configuracion" element={<Placeholder title="Configuración" />} />
-          <Route path="/ayuda" element={<Placeholder title="Ayuda" />} />
+          {/* Principal */}
+          <Route path="/"            element={<Dashboard />} />
+          <Route path="/alertas"     element={<Placeholder title="Alertas preventivas" />} />
+          <Route path="/acciones"    element={<Placeholder title="Acciones remediales" />} />
+          <Route path="/orientacion" element={<Placeholder title="Orientación preventiva" />} />
+
+          {/* Colaboradores */}
+          <Route path="/colaboradores"          element={<Colaboradores />} />
+          <Route path="/colaboradores/mapa"     element={<Placeholder title="Mapa de señales" />} />
+          <Route path="/colaboradores/:id"      element={<ColaboradorDetalle />} />
+
+          {/* Repositorio */}
+          <Route path="/repositorio/docs"              element={<Placeholder title="Docs. del colaborador" />} />
+          <Route path="/repositorio/normativa-legal"   element={<Placeholder title="Normativa legal" />} />
+          <Route path="/repositorio/normativa-interna" element={<Placeholder title="Normativa interna" />} />
+
+          {/* Cumplimiento */}
+          <Route path="/cumplimiento/checklist" element={<Placeholder title="Checklist colaboradores" />} />
+          <Route path="/cumplimiento/radar"     element={<Placeholder title="Radar legal empresa" />} />
+
+          {/* Capacitación */}
+          <Route path="/capacitacion/necesidades" element={<Placeholder title="Necesidades detectadas" />} />
+          <Route path="/capacitacion/proveedores" element={<Placeholder title="Proveedores" />} />
+
+          {/* Configuración */}
+          <Route path="/configuracion/fuentes"  element={<Placeholder title="Fuentes de datos" />} />
+          <Route path="/configuracion/usuarios" element={<Placeholder title="Usuarios y roles" />} />
         </Route>
       </Routes>
     </BrowserRouter>

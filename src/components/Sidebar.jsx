@@ -1,13 +1,20 @@
 import { NavLink } from 'react-router-dom'
 import {
   LayoutDashboard,
-  FileWarning,
-  Users,
+  AlertTriangle,
   ClipboardList,
-  BarChart2,
-  MessageSquare,
-  Settings,
-  HelpCircle,
+  Lightbulb,
+  User,
+  Map,
+  FileText,
+  Scale,
+  Building2,
+  CheckSquare,
+  ShieldAlert,
+  Target,
+  Briefcase,
+  Database,
+  UserCog,
 } from 'lucide-react'
 import sygnalyLogo from '../assets/logo Sygnaly sin fondo.png'
 
@@ -15,24 +22,46 @@ const navSections = [
   {
     label: 'Principal',
     items: [
-      { to: '/', label: 'Dashboard', icon: LayoutDashboard },
-      { to: '/riesgos', label: 'Riesgos', icon: FileWarning },
-      { to: '/colaboradores', label: 'Colaboradores', icon: Users },
+      { to: '/',           label: 'Dashboard',             icon: LayoutDashboard },
+      { to: '/alertas',    label: 'Alertas preventivas',   icon: AlertTriangle },
+      { to: '/acciones',   label: 'Acciones remediales',   icon: ClipboardList },
+      { to: '/orientacion',label: 'Orientación preventiva',icon: Lightbulb },
     ],
   },
   {
-    label: 'Gestión',
+    label: 'Colaboradores',
     items: [
-      { to: '/formularios', label: 'Formularios', icon: ClipboardList },
-      { to: '/reportes', label: 'Reportes', icon: BarChart2 },
-      { to: '/comunicaciones', label: 'Comunicaciones', icon: MessageSquare },
+      { to: '/colaboradores',      label: 'Vista individual', icon: User },
+      { to: '/colaboradores/mapa', label: 'Mapa de señales',  icon: Map },
     ],
   },
   {
-    label: 'Sistema',
+    label: 'Repositorio',
     items: [
-      { to: '/configuracion', label: 'Configuración', icon: Settings },
-      { to: '/ayuda', label: 'Ayuda', icon: HelpCircle },
+      { to: '/repositorio/docs',             label: 'Docs. del colaborador', icon: FileText },
+      { to: '/repositorio/normativa-legal',  label: 'Normativa legal',       icon: Scale },
+      { to: '/repositorio/normativa-interna',label: 'Normativa interna',     icon: Building2 },
+    ],
+  },
+  {
+    label: 'Cumplimiento',
+    items: [
+      { to: '/cumplimiento/checklist', label: 'Checklist colaboradores', icon: CheckSquare },
+      { to: '/cumplimiento/radar',     label: 'Radar legal empresa',     icon: ShieldAlert },
+    ],
+  },
+  {
+    label: 'Capacitación',
+    items: [
+      { to: '/capacitacion/necesidades', label: 'Necesidades detectadas', icon: Target },
+      { to: '/capacitacion/proveedores', label: 'Proveedores',            icon: Briefcase },
+    ],
+  },
+  {
+    label: 'Configuración',
+    items: [
+      { to: '/configuracion/fuentes',  label: 'Fuentes de datos', icon: Database },
+      { to: '/configuracion/usuarios', label: 'Usuarios y roles', icon: UserCog },
     ],
   },
 ]
@@ -53,7 +82,7 @@ export default function Sidebar() {
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 py-4 px-3 flex flex-col gap-5">
+      <nav className="flex-1 py-4 px-3 flex flex-col gap-4">
         {navSections.map((section) => (
           <div key={section.label}>
             <p className="text-white/40 text-[10px] font-semibold uppercase tracking-widest mb-1 px-2">
@@ -66,15 +95,15 @@ export default function Sidebar() {
                     to={to}
                     end={to === '/'}
                     className={({ isActive }) =>
-                      `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      `flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
                         isActive
                           ? 'bg-white/15 text-white'
-                          : 'text-white/65 hover:bg-white/10 hover:text-white'
+                          : 'text-white/60 hover:bg-white/10 hover:text-white'
                       }`
                     }
                   >
-                    <Icon size={16} />
-                    {label}
+                    <Icon size={14} className="shrink-0" />
+                    <span className="truncate">{label}</span>
                   </NavLink>
                 </li>
               ))}
