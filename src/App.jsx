@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import Dashboard from './pages/Dashboard'
 import Colaboradores from './pages/Colaboradores'
 import ColaboradorDetalle from './pages/ColaboradorDetalle'
+import MapaSenales from './pages/MapaSenales'
 import Placeholder from './pages/Placeholder'
 
 export default function App() {
@@ -18,7 +19,7 @@ export default function App() {
 
           {/* Colaboradores */}
           <Route path="/colaboradores"          element={<Colaboradores />} />
-          <Route path="/colaboradores/mapa"     element={<Placeholder title="Mapa de señales" />} />
+          <Route path="/colaboradores/mapa"     element={<MapaSenales />} />
           <Route path="/colaboradores/:id"      element={<ColaboradorDetalle />} />
 
           {/* Repositorio */}

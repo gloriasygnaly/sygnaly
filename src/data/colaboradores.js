@@ -4,6 +4,7 @@ export const colaboradores = [
     nombre: 'Jorge Ramírez',
     iniciales: 'JR',
     cargo: 'Operario de producción',
+    area: 'Planta Norte',
     planta: 'Planta Norte',
     turno: 'Turno A',
     turnoHorario: '06:00 – 14:00',
@@ -11,6 +12,9 @@ export const colaboradores = [
     sindicato: 'No sindicalizado',
     avatarColor: '#185FA5',
     nivelAlerta: 'atencion_urgente', // 'sin_senales' | 'observacion' | 'requiere_atencion' | 'atencion_urgente'
+    tendencia: 'up',                // 'up' | 'down' | 'neutral'
+    factoresPrincipales: ['Comportamiento', 'Conducta grave', 'Desempeño', 'Hecho legal'],
+    estadoAlarma: 'Activo',
 
     senales: [
       {
@@ -173,5 +177,229 @@ export const colaboradores = [
         ],
       },
     },
+  },
+
+  /* ── 2. Fernanda Castillo ── */
+  {
+    id: '2',
+    nombre: 'Fernanda Castillo',
+    iniciales: 'FC',
+    cargo: 'Administrativo',
+    area: 'Administración',
+    planta: 'Administración',
+    turno: 'Turno Día',
+    turnoHorario: '08:00 – 17:00',
+    antiguedad: '2 años 8 meses',
+    sindicato: 'No sindicalizada',
+    avatarColor: '#E24B4A',
+    nivelAlerta: 'atencion_urgente',
+    tendencia: 'up',
+    factoresPrincipales: ['Relacionamiento', 'Desempeño', 'Contexto org.'],
+    estadoAlarma: 'Activo',
+    senales: [
+      { id: 'comportamiento_laboral', titulo: 'Comportamiento laboral', items: [
+        { texto: 'Ausentismo: 2 episodios en 45 días', nivel: 'observacion', fecha: 'Mar–Abr 2026' },
+      ]},
+      { id: 'relacionamiento_interno', titulo: 'Relacionamiento interno', items: [
+        { texto: 'Conflicto documentado con jefa directa', nivel: 'activa', fecha: '01 Abr 2026' },
+        { texto: 'Aislamiento social en equipo administrativo', nivel: 'activa', fecha: 'Abr 2026' },
+      ]},
+      { id: 'conductas_graves', titulo: 'Conductas graves', items: [
+        { texto: 'Incidente verbal en reunión de equipo (testigos)', nivel: 'activa', fecha: '05 Abr 2026' },
+      ]},
+      { id: 'contexto_desempeno', titulo: 'Contexto y desempeño', items: [
+        { texto: 'Errores reiterados en reportes financieros', nivel: 'activa', fecha: 'Mar 2026' },
+        { texto: 'Evaluación Q1 2026: 2.4/5', nivel: 'activa', fecha: 'Abr 2026' },
+        { texto: 'Plazos incumplidos en 3 tareas consecutivas', nivel: 'activa', fecha: 'Abr 2026' },
+      ]},
+      { id: 'contexto_organizacional', titulo: 'Contexto organizacional', items: [
+        { texto: 'Cambio de jefatura directa (tercer cambio en 12 meses)', nivel: 'observacion', fecha: 'Mar 2026' },
+      ]},
+      { id: 'eventos_legales', titulo: 'Eventos con consecuencias legales', items: [] },
+    ],
+    acciones: [
+      { id: 1, titulo: 'Entrevista de vinculación con RRHH', descripcion: 'Escucha activa para identificar factores de malestar.', responsable: 'Carolina Muñoz', fecha: '10 Abr 2026', estado: 'agendada' },
+      { id: 2, titulo: 'Mediación con jefatura directa', descripcion: 'Sesión facilitada para restablecer comunicación.', responsable: 'Pedro Soto', fecha: 'Por definir', estado: 'pendiente' },
+    ],
+    protocolo: null,
+  },
+
+  /* ── 3. Patricio Vega ── */
+  {
+    id: '3',
+    nombre: 'Patricio Vega',
+    iniciales: 'PV',
+    cargo: 'Operario de producción',
+    area: 'Planta Norte',
+    planta: 'Planta Norte',
+    turno: 'Turno B',
+    turnoHorario: '14:00 – 22:00',
+    antiguedad: '1 año 5 meses',
+    sindicato: 'No sindicalizado',
+    avatarColor: '#1D9E75',
+    nivelAlerta: 'requiere_atencion',
+    tendencia: 'up',
+    factoresPrincipales: ['Comportamiento', 'Relacionamiento'],
+    estadoAlarma: 'En seguimiento',
+    senales: [
+      { id: 'comportamiento_laboral', titulo: 'Comportamiento laboral', items: [
+        { texto: 'Llegadas tarde: 5 episodios en el mes', nivel: 'activa', fecha: 'Abr 2026' },
+        { texto: 'Incumplimiento de EPP en línea de producción', nivel: 'activa', fecha: '07 Abr 2026' },
+      ]},
+      { id: 'relacionamiento_interno', titulo: 'Relacionamiento interno', items: [
+        { texto: 'Desacuerdo frecuente con supervisor de turno', nivel: 'activa', fecha: 'Mar–Abr 2026' },
+      ]},
+      { id: 'conductas_graves', titulo: 'Conductas graves', items: [] },
+      { id: 'contexto_desempeno', titulo: 'Contexto y desempeño', items: [
+        { texto: 'Productividad bajo promedio del turno (−12%)', nivel: 'activa', fecha: 'Abr 2026' },
+      ]},
+      { id: 'contexto_organizacional', titulo: 'Contexto organizacional', items: [
+        { texto: 'Primer año completo en empresa, sin mentoría asignada', nivel: 'observacion', fecha: 'Permanente' },
+      ]},
+      { id: 'eventos_legales', titulo: 'Eventos con consecuencias legales', items: [] },
+    ],
+    acciones: [
+      { id: 1, titulo: 'Conversación de feedback con supervisor', descripcion: 'Aclarar expectativas de puntualidad y uso de EPP.', responsable: 'Luis Vera', fecha: '11 Abr 2026', estado: 'agendada' },
+    ],
+    protocolo: null,
+  },
+
+  /* ── 4. Mónica Torres ── */
+  {
+    id: '4',
+    nombre: 'Mónica Torres',
+    iniciales: 'MT',
+    cargo: 'Administrativo',
+    area: 'Administración',
+    planta: 'Administración',
+    turno: 'Turno Día',
+    turnoHorario: '08:00 – 17:00',
+    antiguedad: '6 años 1 mes',
+    sindicato: 'No sindicalizada',
+    avatarColor: '#EF9F27',
+    nivelAlerta: 'requiere_atencion',
+    tendencia: 'neutral',
+    factoresPrincipales: ['Desempeño', 'Contexto org.'],
+    estadoAlarma: 'En seguimiento',
+    senales: [
+      { id: 'comportamiento_laboral', titulo: 'Comportamiento laboral', items: [
+        { texto: 'Permiso médico recurrente (Licencias: 3 en 6 meses)', nivel: 'observacion', fecha: '2026' },
+      ]},
+      { id: 'relacionamiento_interno', titulo: 'Relacionamiento interno', items: [
+        { texto: 'Dificultades de integración con equipo nuevo', nivel: 'activa', fecha: 'Mar 2026' },
+      ]},
+      { id: 'conductas_graves', titulo: 'Conductas graves', items: [] },
+      { id: 'contexto_desempeno', titulo: 'Contexto y desempeño', items: [
+        { texto: 'Reducción de alcance de rol sin comunicación formal', nivel: 'activa', fecha: 'Feb 2026' },
+        { texto: 'Objetivos Q1 no alcanzados (60% cumplimiento)', nivel: 'activa', fecha: 'Abr 2026' },
+      ]},
+      { id: 'contexto_organizacional', titulo: 'Contexto organizacional', items: [
+        { texto: 'Cambio de área sin proceso formal de inducción', nivel: 'observacion', fecha: 'Ene 2026' },
+      ]},
+      { id: 'eventos_legales', titulo: 'Eventos con consecuencias legales', items: [] },
+    ],
+    acciones: [
+      { id: 1, titulo: 'Reunión de clarificación de rol con gerencia', descripcion: 'Definir formalmente funciones y objetivos actualizados.', responsable: 'Carolina Muñoz', fecha: '14 Abr 2026', estado: 'agendada' },
+      { id: 2, titulo: 'Revisión de carga de trabajo', descripcion: 'Evaluar distribución de tareas en el equipo.', responsable: 'Ana Torres', fecha: 'Por definir', estado: 'por_iniciar' },
+    ],
+    protocolo: null,
+  },
+
+  /* ── 5. Héctor Muñoz ── */
+  {
+    id: '5',
+    nombre: 'Héctor Muñoz',
+    iniciales: 'HM',
+    cargo: 'Supervisor de obras',
+    area: 'Obras',
+    planta: 'Obras',
+    turno: 'Turno Día',
+    turnoHorario: '07:00 – 16:00',
+    antiguedad: '9 años 4 meses',
+    sindicato: 'Sindicato N°1',
+    avatarColor: '#534AB7',
+    nivelAlerta: 'observacion',
+    tendencia: 'up',
+    factoresPrincipales: ['Relacionamiento'],
+    estadoAlarma: 'Nuevo',
+    senales: [
+      { id: 'comportamiento_laboral', titulo: 'Comportamiento laboral', items: [] },
+      { id: 'relacionamiento_interno', titulo: 'Relacionamiento interno', items: [
+        { texto: 'Quejas informales de operarios a su cargo (x2)', nivel: 'activa', fecha: 'Mar 2026' },
+        { texto: 'Comunicación vertical percibida como autoritaria', nivel: 'activa', fecha: 'Abr 2026' },
+      ]},
+      { id: 'conductas_graves', titulo: 'Conductas graves', items: [] },
+      { id: 'contexto_desempeno', titulo: 'Contexto y desempeño', items: [
+        { texto: 'Equipo a cargo registra mayor rotación que otras obras', nivel: 'observacion', fecha: '2026' },
+      ]},
+      { id: 'contexto_organizacional', titulo: 'Contexto organizacional', items: [] },
+      { id: 'eventos_legales', titulo: 'Eventos con consecuencias legales', items: [] },
+    ],
+    acciones: [
+      { id: 1, titulo: 'Capacitación en liderazgo y comunicación efectiva', descripcion: 'Módulo de habilidades blandas para supervisores.', responsable: 'Ana Torres', fecha: 'May 2026', estado: 'por_iniciar' },
+    ],
+    protocolo: null,
+  },
+
+  /* ── 6. Alejandra Rojas ── */
+  {
+    id: '6',
+    nombre: 'Alejandra Rojas',
+    iniciales: 'AR',
+    cargo: 'Operaria de producción',
+    area: 'Planta Norte',
+    planta: 'Planta Norte',
+    turno: 'Turno A',
+    turnoHorario: '06:00 – 14:00',
+    antiguedad: '3 años',
+    sindicato: 'No sindicalizada',
+    avatarColor: '#185FA5',
+    nivelAlerta: 'observacion',
+    tendencia: 'down',
+    factoresPrincipales: ['Comportamiento'],
+    estadoAlarma: 'Nuevo',
+    senales: [
+      { id: 'comportamiento_laboral', titulo: 'Comportamiento laboral', items: [
+        { texto: 'Solicitud de cambio de turno reiterada (sin causa documentada)', nivel: 'activa', fecha: 'Abr 2026' },
+      ]},
+      { id: 'relacionamiento_interno', titulo: 'Relacionamiento interno', items: [
+        { texto: 'Reducción de interacción con pares (observación supervisor)', nivel: 'observacion', fecha: 'Abr 2026' },
+      ]},
+      { id: 'conductas_graves', titulo: 'Conductas graves', items: [] },
+      { id: 'contexto_desempeno', titulo: 'Contexto y desempeño', items: [] },
+      { id: 'contexto_organizacional', titulo: 'Contexto organizacional', items: [] },
+      { id: 'eventos_legales', titulo: 'Eventos con consecuencias legales', items: [] },
+    ],
+    acciones: [],
+    protocolo: null,
+  },
+
+  /* ── 7. Luis Fuentes ── */
+  {
+    id: '7',
+    nombre: 'Luis Fuentes',
+    iniciales: 'LF',
+    cargo: 'Operario de producción',
+    area: 'Obras',
+    planta: 'Obras',
+    turno: 'Turno B',
+    turnoHorario: '14:00 – 22:00',
+    antiguedad: '7 años 2 meses',
+    sindicato: 'Sindicato N°1',
+    avatarColor: '#1D9E75',
+    nivelAlerta: 'sin_senales',
+    tendencia: 'down',
+    factoresPrincipales: [],
+    estadoAlarma: 'Sin alarma',
+    senales: [
+      { id: 'comportamiento_laboral', titulo: 'Comportamiento laboral', items: [] },
+      { id: 'relacionamiento_interno', titulo: 'Relacionamiento interno', items: [] },
+      { id: 'conductas_graves', titulo: 'Conductas graves', items: [] },
+      { id: 'contexto_desempeno', titulo: 'Contexto y desempeño', items: [] },
+      { id: 'contexto_organizacional', titulo: 'Contexto organizacional', items: [] },
+      { id: 'eventos_legales', titulo: 'Eventos con consecuencias legales', items: [] },
+    ],
+    acciones: [],
+    protocolo: null,
   },
 ]
