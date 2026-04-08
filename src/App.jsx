@@ -5,6 +5,7 @@ import Colaboradores from './pages/Colaboradores'
 import ColaboradorDetalle from './pages/ColaboradorDetalle'
 import MapaSenales from './pages/MapaSenales'
 import OrientacionPreventiva from './pages/OrientacionPreventiva'
+import DocsColaborador from './pages/DocsColaborador'
 import Placeholder from './pages/Placeholder'
 
 export default function App() {
@@ -24,7 +25,7 @@ export default function App() {
           <Route path="/colaboradores/:id"      element={<ColaboradorDetalle />} />
 
           {/* Repositorio */}
-          <Route path="/repositorio/docs"              element={<Placeholder title="Docs. del colaborador" />} />
+          <Route path="/repositorio/docs"              element={<DocsColaborador />} />
           <Route path="/repositorio/normativa-legal"   element={<Placeholder title="Normativa legal" />} />
           <Route path="/repositorio/normativa-interna" element={<Placeholder title="Normativa interna" />} />
 
