@@ -1,6 +1,8 @@
 import { HashRouter as BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Dashboard from './pages/Dashboard'
+import Colaboradores from './pages/Colaboradores'
+import ColaboradorDetalle from './pages/ColaboradorDetalle'
 import Placeholder from './pages/Placeholder'
 
 export default function App() {
@@ -10,7 +12,8 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/riesgos" element={<Placeholder title="Gestión de Riesgos" />} />
-          <Route path="/colaboradores" element={<Placeholder title="Colaboradores" />} />
+          <Route path="/colaboradores" element={<Colaboradores />} />
+          <Route path="/colaboradores/:id" element={<ColaboradorDetalle />} />
           <Route path="/formularios" element={<Placeholder title="Formularios" />} />
           <Route path="/reportes" element={<Placeholder title="Reportes" />} />
           <Route path="/comunicaciones" element={<Placeholder title="Comunicaciones" />} />
