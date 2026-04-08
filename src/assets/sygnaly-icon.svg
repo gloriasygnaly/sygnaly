@@ -1,19 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 48" fill="none">
-  <!-- Upper S arc: from top-right to middle-left (counterclockwise sweep) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 56" fill="none">
+  <!-- S-network path: upper-left → upper-right → lower-left → lower-right -->
   <path
-    d="M 30 8 C 30 8 30 18 18 18 C 10 18 10 18 10 18"
-    stroke="white" stroke-width="2.6" stroke-linecap="round" fill="none"
+    d="M 10 10 C 10 2 38 2 38 18 C 38 28 10 28 10 38 C 10 54 38 54 38 46"
+    stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"
   />
-  <!-- Lower S arc: from middle-right to bottom-left (clockwise sweep) -->
-  <path
-    d="M 30 30 C 30 30 10 30 10 40"
-    stroke="white" stroke-width="2.6" stroke-linecap="round" fill="none"
-  />
-  <!-- Middle vertical connector -->
-  <line x1="10" y1="18" x2="10" y2="30" stroke="white" stroke-width="2.6" stroke-linecap="round"/>
-  <!-- Nodes: top-right, middle-left, middle-right junction, bottom-left -->
-  <circle cx="30" cy="8"  r="3.4" fill="white"/>
-  <circle cx="10" cy="24" r="3.4" fill="white"/>
-  <circle cx="30" cy="30" r="3.4" fill="white"/>
-  <circle cx="10" cy="40" r="3.4" fill="white"/>
+  <!-- 4 network nodes -->
+  <circle cx="10" cy="10" r="3.8" fill="white"/>
+  <circle cx="38" cy="18" r="3.8" fill="white"/>
+  <circle cx="10" cy="38" r="3.8" fill="white"/>
+  <circle cx="38" cy="46" r="3.8" fill="white"/>
 </svg>

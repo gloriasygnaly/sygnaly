@@ -44,17 +44,16 @@ export default function Sidebar() {
       style={{ width: 224, background: '#0F3D6E' }}
     >
       {/* Logo */}
-      <div className="flex items-center gap-3 px-4 py-4 border-b border-white/10">
-        <img
-          src={sygnalyIcon}
-          alt="Sygnaly icon"
-          className="shrink-0"
-          style={{ width: 28, height: 34 }}
-        />
-        <div className="leading-tight">
-          <span className="text-white font-bold text-base tracking-wide">Sygnaly</span>
-          <p className="text-white/50 text-[10px] font-normal">conectar para mejorar</p>
+      <div className="flex flex-col items-center px-4 pt-6 pb-5 border-b border-white/10">
+        <div className="flex items-center gap-2.5">
+          <img
+            src={sygnalyIcon}
+            alt="Sygnaly"
+            style={{ width: 26, height: 30 }}
+          />
+          <span className="text-white font-bold text-xl tracking-tight">Sygnaly</span>
         </div>
+        <p className="text-white/45 text-[10px] tracking-wide mt-1">Conectar para mejorar</p>
       </div>
 
       {/* Nav */}
