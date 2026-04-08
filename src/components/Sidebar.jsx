@@ -9,7 +9,7 @@ import {
   Settings,
   HelpCircle,
 } from 'lucide-react'
-import sygnalyIcon from '../assets/sygnaly-icon.svg'
+import sygnalyLogo from '../assets/logo Sygnaly sin fondo.png'
 
 const navSections = [
   {
@@ -44,16 +44,12 @@ export default function Sidebar() {
       style={{ width: 224, background: '#0F3D6E' }}
     >
       {/* Logo */}
-      <div className="flex flex-col items-center px-4 pt-6 pb-5 border-b border-white/10">
-        <div className="flex items-center gap-2.5">
-          <img
-            src={sygnalyIcon}
-            alt="Sygnaly"
-            style={{ width: 26, height: 30 }}
-          />
-          <span className="text-white font-bold text-xl tracking-tight">Sygnaly</span>
-        </div>
-        <p className="text-white/45 text-[10px] tracking-wide mt-1">Conectar para mejorar</p>
+      <div className="flex flex-col items-center px-5 pt-6 pb-5 border-b border-white/10">
+        <img
+          src={sygnalyLogo}
+          alt="Sygnaly"
+          style={{ width: 148, filter: 'invert(1)' }}
+        />
       </div>
 
       {/* Nav */}
