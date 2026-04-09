@@ -56,7 +56,13 @@ export default function ColaboradorDetalle() {
   // Contexto adicional · ingreso libre
   const [contextoTexto, setContextoTexto]   = useState('')
   const [contextoModal, setContextoModal]   = useState(false)
-  const [contextoEntradas, setContextoEntradas] = useState([])
+  const [contextoEntradas, setContextoEntradas] = useState([
+    {
+      texto: 'Conversación informal con Rodrigo Soto (jefatura directa): "Jorge llegó tarde el lunes y cuando le dije algo me dijo que voy a ver qué opciones tengo. No sé si me está amenazando. Además siento que el resto del turno lo sigue a él, como que están tomando partido. No es lo que acordamos cuando lo contratamos."',
+      respuesta: `Del contenido analizado se desprenden las siguientes observaciones internas:\n\nEl tono sugiere una persona con alta reactividad emocional ante situaciones de injusticia percibida. Usa lenguaje de confrontación indirecta ('voy a ver qué opciones tengo', 'no es lo que acordamos'), lo que en contextos laborales suele preceder una acción formal.\n\nSe detecta distancia progresiva del vínculo: no busca resolver, busca validar su posición. Esto es consistente con las señales activas de Relacionamiento interno y Eventos con consecuencias legales.\n\nAcciones que podrían prevenir escalada: (1) conversación de escucha activa en los próximos 5 días sin agenda disciplinaria, (2) revisar si hay un agravio específico no resuelto que está alimentando la narrativa del colaborador, (3) evitar cualquier acción disciplinaria mientras el tono esté en este punto ya que podría ser interpretada como represalia.\n\nEsta lectura es orientativa, confidencial y de uso interno exclusivo. No puede ser citada en procesos legales o judiciales.`,
+      fecha: '08:51 · Hoy',
+    },
+  ])
 
   if (!colaborador) {
     return (
