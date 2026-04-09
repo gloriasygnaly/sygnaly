@@ -8,6 +8,8 @@ import OrientacionPreventiva from './pages/OrientacionPreventiva'
 import DocsColaborador from './pages/DocsColaborador'
 import ChecklistColaboradores from './pages/ChecklistColaboradores'
 import RadarLegal from './pages/RadarLegal'
+import Capacitacion from './pages/Capacitacion'
+import FuentesDatos from './pages/FuentesDatos'
 import Placeholder from './pages/Placeholder'
 
 export default function App() {
@@ -36,11 +38,11 @@ export default function App() {
           <Route path="/cumplimiento/radar"     element={<RadarLegal />} />
 
           {/* Capacitación */}
-          <Route path="/capacitacion/necesidades" element={<Placeholder title="Necesidades detectadas" />} />
-          <Route path="/capacitacion/proveedores" element={<Placeholder title="Proveedores" />} />
+          <Route path="/capacitacion/necesidades" element={<Capacitacion />} />
+          <Route path="/capacitacion/proveedores" element={<Capacitacion />} />
 
           {/* Configuración */}
-          <Route path="/configuracion/fuentes"  element={<Placeholder title="Fuentes de datos" />} />
+          <Route path="/configuracion/fuentes"  element={<FuentesDatos />} />
           <Route path="/configuracion/usuarios" element={<Placeholder title="Usuarios y roles" />} />
         </Route>
       </Routes>
