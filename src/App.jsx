@@ -9,6 +9,7 @@ import DocsColaborador from './pages/DocsColaborador'
 import ChecklistColaboradores from './pages/ChecklistColaboradores'
 import RadarLegal from './pages/RadarLegal'
 import Capacitacion from './pages/Capacitacion'
+import Proveedores from './pages/Proveedores'
 import FuentesDatos from './pages/FuentesDatos'
 import Placeholder from './pages/Placeholder'
 
@@ -39,7 +40,7 @@ export default function App() {
 
           {/* Capacitación */}
           <Route path="/capacitacion/necesidades" element={<Capacitacion />} />
-          <Route path="/capacitacion/proveedores" element={<Capacitacion />} />
+          <Route path="/capacitacion/proveedores" element={<Proveedores />} />
 
           {/* Configuración */}
           <Route path="/configuracion/fuentes"  element={<FuentesDatos />} />
