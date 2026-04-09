@@ -6,6 +6,8 @@ import ColaboradorDetalle from './pages/ColaboradorDetalle'
 import MapaSenales from './pages/MapaSenales'
 import OrientacionPreventiva from './pages/OrientacionPreventiva'
 import DocsColaborador from './pages/DocsColaborador'
+import ChecklistColaboradores from './pages/ChecklistColaboradores'
+import RadarLegal from './pages/RadarLegal'
 import Placeholder from './pages/Placeholder'
 
 export default function App() {
@@ -30,8 +32,8 @@ export default function App() {
           <Route path="/repositorio/normativa-interna" element={<Placeholder title="Normativa interna" />} />
 
           {/* Cumplimiento */}
-          <Route path="/cumplimiento/checklist" element={<Placeholder title="Checklist colaboradores" />} />
-          <Route path="/cumplimiento/radar"     element={<Placeholder title="Radar legal empresa" />} />
+          <Route path="/cumplimiento/checklist" element={<ChecklistColaboradores />} />
+          <Route path="/cumplimiento/radar"     element={<RadarLegal />} />
 
           {/* Capacitación */}
           <Route path="/capacitacion/necesidades" element={<Placeholder title="Necesidades detectadas" />} />
