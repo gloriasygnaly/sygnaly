@@ -5,7 +5,7 @@ import {
   AlertTriangle, CheckCircle2, Circle, XCircle,
   Minus, Info, Scale, Building2, FileText,
   ChevronRight, TrendingDown, Calculator,
-  ShieldAlert,
+  ShieldAlert, Upload, Send, X, Lock,
 } from 'lucide-react'
 import { colaboradores } from '../data/colaboradores'
 
@@ -52,6 +52,11 @@ export default function ColaboradorDetalle() {
 
   const [tabActiva, setTabActiva] = useState('senales')
   const [disclaimerAceptado, setDisclaimerAceptado] = useState(false)
+
+  // Contexto adicional · ingreso libre
+  const [contextoTexto, setContextoTexto]   = useState('')
+  const [contextoModal, setContextoModal]   = useState(false)
+  const [contextoEntradas, setContextoEntradas] = useState([])
 
   if (!colaborador) {
     return (
@@ -239,6 +244,146 @@ export default function ColaboradorDetalle() {
               )
             })}
           </div>
+
+          {/* ── Contexto adicional · ingreso libre ── */}
+          <div className="mt-4 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            {/* Header */}
+            <div className="px-5 py-3 border-b border-gray-50 flex items-center gap-2" style={{ background: '#F9FAFB' }}>
+              <Lock size={13} className="text-gray-400" />
+              <p className="text-sm font-semibold text-gray-700">Contexto adicional · ingreso libre</p>
+              <span className="ml-auto text-[11px] font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-400">
+                Uso interno · no exportable
+              </span>
+            </div>
+
+            <div className="px-5 py-4 flex flex-col gap-3">
+              <p className="text-xs text-gray-400">
+                Agrega observaciones, notas de conversación o sube un documento (imagen, audio transcrito, PDF). Sygnaly lo analiza como contexto interno del caso.
+              </p>
+
+              {/* Entradas guardadas */}
+              {contextoEntradas.length > 0 && (
+                <div className="flex flex-col gap-3">
+                  {contextoEntradas.map((e, i) => (
+                    <div key={i} className="rounded-lg border border-gray-100 p-4 flex flex-col gap-2" style={{ background: '#F9FAFB' }}>
+                      {/* Texto ingresado */}
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="text-xs text-gray-600 flex-1">{e.texto}</p>
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-100 text-gray-400 shrink-0 whitespace-nowrap">
+                          Ingreso libre · uso interno · no exportable · no citable
+                        </span>
+                      </div>
+                      {/* Respuesta Sygnaly */}
+                      <div className="flex items-start gap-2 rounded-lg px-3 py-2.5 mt-1" style={{ background: '#F0EFFE' }}>
+                        <div className="w-5 h-5 rounded-full flex items-center justify-center text-white text-[9px] font-bold shrink-0 mt-0.5" style={{ background: '#534AB7' }}>
+                          SY
+                        </div>
+                        <p className="text-xs text-gray-600 italic">{e.respuesta}</p>
+                      </div>
+                      <p className="text-[10px] text-gray-300 text-right">{e.fecha}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Textarea */}
+              <textarea
+                value={contextoTexto}
+                onChange={(e) => setContextoTexto(e.target.value)}
+                rows={3}
+                placeholder="Escribe aquí tus observaciones sobre el caso, notas de conversación informal, contexto que no aparece en el sistema…"
+                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-700 placeholder-gray-300 resize-none focus:outline-none focus:border-gray-400"
+              />
+
+              {/* Acciones */}
+              <div className="flex items-center gap-3">
+                <button className="flex items-center gap-1.5 text-xs font-medium text-gray-400 hover:text-gray-600 border border-gray-200 rounded-lg px-3 py-1.5 transition-colors">
+                  <Upload size={12} /> Subir archivo
+                </button>
+                <button
+                  onClick={() => { if (contextoTexto.trim()) setContextoModal(true) }}
+                  disabled={!contextoTexto.trim()}
+                  className="ml-auto flex items-center gap-1.5 text-xs font-semibold px-4 py-1.5 rounded-lg text-white transition-opacity"
+                  style={{ background: contextoTexto.trim() ? '#534AB7' : '#D1D5DB', cursor: contextoTexto.trim() ? 'pointer' : 'default' }}
+                >
+                  <Send size={12} /> Procesar y analizar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Modal de confirmación ingreso libre ── */}
+          {contextoModal && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+              onClick={() => setContextoModal(false)}
+            >
+              <div
+                className="bg-white rounded-2xl shadow-2xl p-6 w-[520px] max-w-[95vw]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0" style={{ background: '#FFFBEB' }}>
+                      <AlertTriangle size={16} style={{ color: '#D97706' }} />
+                    </div>
+                    <h3 className="text-base font-bold text-gray-900">Antes de continuar</h3>
+                  </div>
+                  <button onClick={() => setContextoModal(false)} className="text-gray-300 hover:text-gray-500 shrink-0">
+                    <X size={18} />
+                  </button>
+                </div>
+
+                <div className="rounded-xl p-4 mb-5" style={{ background: '#FFFBEB', border: '1px solid #FDE68A' }}>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Estás agregando contenido de ingreso libre. Sygnaly lo analizará como contexto interno del caso, pero:
+                  </p>
+                  <ol className="mt-2 flex flex-col gap-1.5 list-none">
+                    {[
+                      'este contenido no forma parte del expediente oficial del colaborador,',
+                      'no puede ser citado como evidencia en procesos legales o judiciales,',
+                      'su uso es responsabilidad exclusiva de quien lo ingresa.',
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                        <span className="font-bold shrink-0" style={{ color: '#D97706' }}>({i + 1})</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ol>
+                  <p className="text-sm text-gray-700 mt-2 font-medium">
+                    Ni Sygnaly ni la empresa se hacen responsables del uso de esta información.
+                  </p>
+                </div>
+
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setContextoModal(false)}
+                    className="flex-1 px-4 py-2.5 text-sm font-medium text-gray-500 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    onClick={() => {
+                      setContextoEntradas((prev) => [
+                        ...prev,
+                        {
+                          texto: contextoTexto,
+                          respuesta: 'Basándome en lo que describes, se observan patrones de tensión relacional que podrían estar relacionados con las señales activas de Relacionamiento interno. Esta lectura es orientativa, confidencial y de uso interno exclusivo.',
+                          fecha: new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' }) + ' · Hoy',
+                        },
+                      ])
+                      setContextoTexto('')
+                      setContextoModal(false)
+                    }}
+                    className="flex-1 px-4 py-2.5 text-sm font-semibold text-white rounded-xl hover:opacity-90 transition-opacity"
+                    style={{ background: '#534AB7' }}
+                  >
+                    Acepto y continúo
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
 

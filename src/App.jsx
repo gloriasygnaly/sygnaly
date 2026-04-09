@@ -16,6 +16,7 @@ import Capacitacion from './pages/Capacitacion'
 import Proveedores from './pages/Proveedores'
 import FuentesDatos from './pages/FuentesDatos'
 import UsuariosRoles from './pages/UsuariosRoles'
+import Notificaciones from './pages/Notificaciones'
 import Placeholder from './pages/Placeholder'
 
 export default function App() {
@@ -48,8 +49,9 @@ export default function App() {
           <Route path="/capacitacion/proveedores" element={<Proveedores />} />
 
           {/* Configuración */}
-          <Route path="/configuracion/fuentes"  element={<FuentesDatos />} />
-          <Route path="/configuracion/usuarios" element={<UsuariosRoles />} />
+          <Route path="/configuracion/fuentes"        element={<FuentesDatos />} />
+          <Route path="/configuracion/usuarios"       element={<UsuariosRoles />} />
+          <Route path="/configuracion/notificaciones" element={<Notificaciones />} />
         </Route>
       </Routes>
     </BrowserRouter>

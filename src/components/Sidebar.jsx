@@ -15,6 +15,7 @@ import {
   Briefcase,
   Database,
   UserCog,
+  Bell,
 } from 'lucide-react'
 import sygnalyLogo from '../assets/logo Sygnaly sin fondo.png'
 
@@ -60,8 +61,9 @@ const navSections = [
   {
     label: 'Configuración',
     items: [
-      { to: '/configuracion/fuentes',  label: 'Fuentes de datos', icon: Database },
-      { to: '/configuracion/usuarios', label: 'Usuarios y roles', icon: UserCog },
+      { to: '/configuracion/fuentes',        label: 'Fuentes de datos',  icon: Database },
+      { to: '/configuracion/usuarios',       label: 'Usuarios y roles',  icon: UserCog },
+      { to: '/configuracion/notificaciones', label: 'Notificaciones',    icon: Bell },
     ],
   },
 ]
