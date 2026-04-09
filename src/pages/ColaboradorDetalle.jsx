@@ -267,24 +267,42 @@ export default function ColaboradorDetalle() {
                   {contextoEntradas.map((e, i) => (
                     <div key={i} className="rounded-lg border border-gray-100 p-4 flex flex-col gap-2" style={{ background: '#F9FAFB' }}>
                       {/* Texto ingresado */}
-                      <div className="flex items-start justify-between gap-2">
-                        <p className="text-xs text-gray-600 flex-1">{e.texto}</p>
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-100 text-gray-400 shrink-0 whitespace-nowrap">
-                          Ingreso libre · uso interno · no exportable · no citable
-                        </span>
-                      </div>
+                      <p className="text-xs text-gray-600">{e.texto}</p>
+
                       {/* Respuesta Sygnaly */}
                       <div className="flex items-start gap-2 rounded-lg px-3 py-2.5 mt-1" style={{ background: '#F0EFFE' }}>
                         <div className="w-5 h-5 rounded-full flex items-center justify-center text-white text-[9px] font-bold shrink-0 mt-0.5" style={{ background: '#534AB7' }}>
                           SY
                         </div>
-                        <p className="text-xs text-gray-600 italic">{e.respuesta}</p>
+                        <div className="flex flex-col gap-2 flex-1">
+                          {e.respuesta.split('\n\n').map((párrafo, pi) => (
+                            <p key={pi} className="text-xs text-gray-700 leading-relaxed">{párrafo}</p>
+                          ))}
+                        </div>
                       </div>
-                      <p className="text-[10px] text-gray-300 text-right">{e.fecha}</p>
+
+                      {/* Badge + fecha */}
+                      <div className="flex items-center justify-between gap-2 pt-1">
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-100 text-gray-400">
+                          Ingreso libre · uso interno · no exportable · no citable
+                        </span>
+                        <p className="text-[10px] text-gray-300">{e.fecha}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
               )}
+
+              {/* Banner disclaimer permanente */}
+              <div
+                className="flex items-start gap-2.5 rounded-lg px-4 py-3"
+                style={{ background: '#FFFBEB', border: '1px solid #FDE68A' }}
+              >
+                <AlertTriangle size={14} style={{ color: '#D97706' }} className="shrink-0 mt-0.5" />
+                <p className="text-xs leading-relaxed" style={{ color: '#92400E' }}>
+                  Esta sección es de uso interno exclusivo. El contenido que ingreses será analizado por Sygnaly como contexto orientativo, pero no forma parte del expediente oficial del colaborador, no puede ser citado en procesos legales o judiciales, y su uso es responsabilidad exclusiva de quien lo ingresa. Ni Sygnaly ni la empresa se hacen responsables del uso de esta información.
+                </p>
+              </div>
 
               {/* Textarea */}
               <textarea
@@ -368,7 +386,7 @@ export default function ColaboradorDetalle() {
                         ...prev,
                         {
                           texto: contextoTexto,
-                          respuesta: 'Basándome en lo que describes, se observan patrones de tensión relacional que podrían estar relacionados con las señales activas de Relacionamiento interno. Esta lectura es orientativa, confidencial y de uso interno exclusivo.',
+                          respuesta: `Del contenido analizado se desprenden las siguientes observaciones internas:\n\nEl tono sugiere una persona con alta reactividad emocional ante situaciones de injusticia percibida. Usa lenguaje de confrontación indirecta ('voy a ver qué opciones tengo', 'no es lo que acordamos'), lo que en contextos laborales suele preceder una acción formal.\n\nSe detecta distancia progresiva del vínculo: no busca resolver, busca validar su posición. Esto es consistente con las señales activas de Relacionamiento interno y Eventos con consecuencias legales.\n\nAcciones que podrían prevenir escalada: (1) conversación de escucha activa en los próximos 5 días sin agenda disciplinaria, (2) revisar si hay un agravio específico no resuelto que está alimentando la narrativa del colaborador, (3) evitar cualquier acción disciplinaria mientras el tono esté en este punto ya que podría ser interpretada como represalia.\n\nEsta lectura es orientativa, confidencial y de uso interno exclusivo. No puede ser citada en procesos legales o judiciales.`,
                           fecha: new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' }) + ' · Hoy',
                         },
                       ])
