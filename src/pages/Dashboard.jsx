@@ -118,7 +118,7 @@ export default function Dashboard() {
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-gray-500 text-sm mt-0.5">Resumen de prevención de conflictos laborales · Abril 2026</p>
+        <p className="text-gray-500 text-sm mt-0.5">Gestión preventiva del vínculo laboral · Abril 2026</p>
       </div>
 
       {/* KPI Cards */}
