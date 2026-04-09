@@ -5,6 +5,8 @@ import Colaboradores from './pages/Colaboradores'
 import ColaboradorDetalle from './pages/ColaboradorDetalle'
 import MapaSenales from './pages/MapaSenales'
 import OrientacionPreventiva from './pages/OrientacionPreventiva'
+import AlertasPreventivas from './pages/AlertasPreventivas'
+import AccionesRemediales from './pages/AccionesRemediales'
 import DocsColaborador from './pages/DocsColaborador'
 import ChecklistColaboradores from './pages/ChecklistColaboradores'
 import RadarLegal from './pages/RadarLegal'
@@ -23,8 +25,8 @@ export default function App() {
         <Route element={<Layout />}>
           {/* Principal */}
           <Route path="/"            element={<Dashboard />} />
-          <Route path="/alertas"     element={<Placeholder title="Alertas preventivas" />} />
-          <Route path="/acciones"    element={<Placeholder title="Acciones remediales" />} />
+          <Route path="/alertas"     element={<AlertasPreventivas />} />
+          <Route path="/acciones"    element={<AccionesRemediales />} />
           <Route path="/orientacion" element={<OrientacionPreventiva />} />
 
           {/* Colaboradores */}
