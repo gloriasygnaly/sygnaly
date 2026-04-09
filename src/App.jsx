@@ -8,9 +8,12 @@ import OrientacionPreventiva from './pages/OrientacionPreventiva'
 import DocsColaborador from './pages/DocsColaborador'
 import ChecklistColaboradores from './pages/ChecklistColaboradores'
 import RadarLegal from './pages/RadarLegal'
+import NormativaLegal from './pages/NormativaLegal'
+import NormativaInterna from './pages/NormativaInterna'
 import Capacitacion from './pages/Capacitacion'
 import Proveedores from './pages/Proveedores'
 import FuentesDatos from './pages/FuentesDatos'
+import UsuariosRoles from './pages/UsuariosRoles'
 import Placeholder from './pages/Placeholder'
 
 export default function App() {
@@ -31,8 +34,8 @@ export default function App() {
 
           {/* Repositorio */}
           <Route path="/repositorio/docs"              element={<DocsColaborador />} />
-          <Route path="/repositorio/normativa-legal"   element={<Placeholder title="Normativa legal" />} />
-          <Route path="/repositorio/normativa-interna" element={<Placeholder title="Normativa interna" />} />
+          <Route path="/repositorio/normativa-legal"   element={<NormativaLegal />} />
+          <Route path="/repositorio/normativa-interna" element={<NormativaInterna />} />
 
           {/* Cumplimiento */}
           <Route path="/cumplimiento/checklist" element={<ChecklistColaboradores />} />
@@ -44,7 +47,7 @@ export default function App() {
 
           {/* Configuración */}
           <Route path="/configuracion/fuentes"  element={<FuentesDatos />} />
-          <Route path="/configuracion/usuarios" element={<Placeholder title="Usuarios y roles" />} />
+          <Route path="/configuracion/usuarios" element={<UsuariosRoles />} />
         </Route>
       </Routes>
     </BrowserRouter>
