@@ -9,7 +9,7 @@ import {
   XCircle,
   CircleDot,
 } from 'lucide-react'
-import bannerBg from '../banner-sygnaly2.jpg'
+import bannerBg from '../assets/banner-sygnaly2.jpg'
 
 const kpis = [
   {
