@@ -12,7 +12,7 @@ import {
 
 const kpis = [
   {
-    label: 'Riesgos Activos',
+    label: 'Señales activas',
     value: '12',
     delta: '+3 este mes',
     deltaUp: true,
@@ -21,7 +21,7 @@ const kpis = [
     icon: AlertTriangle,
   },
   {
-    label: 'Índice de Conflicto',
+    label: 'Vínculos en observación',
     value: '4.2%',
     delta: '−0.8% vs mes anterior',
     deltaUp: false,
@@ -39,7 +39,7 @@ const kpis = [
     icon: Users,
   },
   {
-    label: 'Formularios Pendientes',
+    label: 'Acciones pendientes',
     value: '8',
     delta: '2 vencen esta semana',
     deltaUp: true,
@@ -52,55 +52,55 @@ const kpis = [
 const recentAlerts = [
   {
     id: 1,
-    title: 'Posible infracción Ley Karin',
-    area: 'Operaciones',
-    date: 'Hace 2 horas',
-    severity: 'Alta',
+    title: 'Reunión tripartita sin preparación',
+    colaborador: 'Jorge Ramírez',
+    area: 'Planta Norte',
+    severity: 'Urgente',
     status: 'pending',
   },
   {
     id: 2,
-    title: 'Descanso semanal no otorgado',
-    area: 'Logística',
-    date: 'Hace 5 horas',
+    title: 'Proceso Ley Karin activo',
+    colaborador: 'Fernanda Castillo',
+    area: 'Administración',
+    severity: 'Urgente',
+    status: 'pending',
+  },
+  {
+    id: 3,
+    title: 'Amonestación pendiente sin protocolo',
+    colaborador: 'Patricio Vega',
+    area: 'Planta Norte',
     severity: 'Media',
     status: 'review',
   },
   {
-    id: 3,
-    title: 'Horas extra sin autorizar',
-    area: 'Ventas',
-    date: 'Ayer 16:30',
-    severity: 'Baja',
-    status: 'resolved',
-  },
-  {
     id: 4,
-    title: 'Contrato a plazo fijo vencido',
+    title: 'Cambio de condiciones sin anexo',
+    colaborador: 'Mónica Torres',
     area: 'Administración',
-    date: 'Ayer 09:12',
-    severity: 'Alta',
-    status: 'pending',
+    severity: 'Media',
+    status: 'review',
   },
   {
     id: 5,
-    title: 'Falta de EPP documentada',
-    area: 'Producción',
-    date: '05 Apr',
-    severity: 'Media',
+    title: 'Capacitación Ley Karin venciendo',
+    colaborador: 'Equipo Obras',
+    area: 'Obras',
+    severity: 'Baja',
     status: 'resolved',
   },
 ]
 
 const riskByArea = [
-  { area: 'Operaciones', risks: 4, pct: 80 },
-  { area: 'Logística', risks: 3, pct: 60 },
-  { area: 'Ventas', risks: 2, pct: 40 },
-  { area: 'Administración', risks: 2, pct: 40 },
-  { area: 'Producción', risks: 1, pct: 20 },
+  { area: 'Planta Norte', risks: 4, pct: 100 },
+  { area: 'Administración', risks: 3, pct: 75 },
+  { area: 'Obras', risks: 2, pct: 50 },
+  { area: 'Logística', risks: 1, pct: 25 },
 ]
 
 const severityColor = {
+  Urgente: { text: '#E24B4A', bg: '#FEF2F2' },
   Alta: { text: '#E24B4A', bg: '#FEF2F2' },
   Media: { text: '#EF9F27', bg: '#FFFBEB' },
   Baja: { text: '#1D9E75', bg: '#ECFDF5' },
@@ -161,7 +161,7 @@ export default function Dashboard() {
                 <div key={alert.id} className="flex items-center gap-4 px-5 py-3 hover:bg-gray-50 transition-colors">
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-800 truncate">{alert.title}</p>
-                    <p className="text-xs text-gray-400">{alert.area} · {alert.date}</p>
+                    <p className="text-xs text-gray-400">{alert.colaborador} · {alert.area}</p>
                   </div>
                   <span
                     className="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full"
