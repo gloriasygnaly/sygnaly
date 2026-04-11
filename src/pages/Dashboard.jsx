@@ -9,6 +9,7 @@ import {
   XCircle,
   CircleDot,
 } from 'lucide-react'
+import bannerBg from '../banner-sygnaly2.jpg'
 
 const kpis = [
   {
@@ -119,6 +120,40 @@ export default function Dashboard() {
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
         <p className="text-gray-500 text-sm mt-0.5">Gestión preventiva del vínculo laboral · Abril 2026</p>
+      </div>
+
+      {/* Welcome Banner */}
+      <div
+        className="relative rounded-2xl overflow-hidden mb-6"
+        style={{ height: 180, backgroundImage: `url(${bannerBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0" style={{ background: 'rgba(15,39,68,0.65)' }} />
+        {/* Content */}
+        <div className="relative h-full flex items-center justify-between px-8">
+          {/* Left: text */}
+          <div className="flex flex-col gap-2">
+            <p className="text-white font-bold" style={{ fontSize: 22 }}>Hola, Carolina 👋</p>
+            <p className="text-white/80 max-w-md leading-relaxed" style={{ fontSize: 14 }}>
+              Te acompañaremos para prevenir y reforzar los vínculos laborales en tu organización
+            </p>
+          </div>
+          {/* Right: pills */}
+          <div className="flex flex-col gap-2 shrink-0">
+            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(226,75,74,0.20)', color: '#FCA5A5', border: '1px solid rgba(226,75,74,0.40)' }}>
+              <span className="w-2 h-2 rounded-full bg-red-400 shrink-0" />
+              2 alertas urgentes
+            </span>
+            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(239,159,39,0.20)', color: '#FCD34D', border: '1px solid rgba(239,159,39,0.40)' }}>
+              <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+              4 acciones en curso
+            </span>
+            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(29,158,117,0.20)', color: '#6EE7B7', border: '1px solid rgba(29,158,117,0.40)' }}>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+              23 vínculos fortalecidos
+            </span>
+          </div>
+        </div>
       </div>
 
       {/* KPI Cards */}
