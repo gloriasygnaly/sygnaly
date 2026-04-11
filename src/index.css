@@ -18,10 +18,17 @@ body {
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   background: #F0F4F8;
+  /* Prevent iOS bounce / overscroll on body */
+  overscroll-behavior: none;
 }
 
 #root {
   display: flex;
-  height: 100vh;
+  height: 100dvh; /* dvh respects mobile browser chrome (address bar) */
   width: 100%;
+}
+
+/* Smooth momentum scrolling on iOS */
+main {
+  -webkit-overflow-scrolling: touch;
 }

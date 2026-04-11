@@ -115,58 +115,58 @@ const statusIcon = {
 
 export default function Dashboard() {
   return (
-    <div className="p-6 max-w-[1200px] mx-auto">
+    <div className="p-4 md:p-6 max-w-[1200px] mx-auto">
       {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+      <div className="mb-4 md:mb-6">
+        <h1 className="text-xl md:text-2xl font-bold text-gray-900">Dashboard</h1>
         <p className="text-gray-500 text-sm mt-0.5">Gestión preventiva del vínculo laboral · Abril 2026</p>
       </div>
 
       {/* Welcome Banner */}
       <div
-        className="relative rounded-2xl overflow-hidden mb-6"
-        style={{ height: 180, backgroundImage: `url(${bannerBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        className="relative rounded-2xl overflow-hidden mb-4 md:mb-6 h-[140px] md:h-[180px]"
+        style={{ backgroundImage: `url(${bannerBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         {/* Overlay: intenso a la izquierda → transparente en el centro → semitransparente a la derecha */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(15,39,68,0.88) 0%, rgba(15,39,68,0.80) 28%, rgba(15,39,68,0.05) 52%, rgba(15,39,68,0.55) 75%, rgba(15,39,68,0.70) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(15,39,68,0.92) 0%, rgba(15,39,68,0.82) 28%, rgba(15,39,68,0.05) 52%, rgba(15,39,68,0.55) 75%, rgba(15,39,68,0.70) 100%)' }} />
         {/* Content */}
-        <div className="relative h-full flex items-center justify-between px-8 gap-4">
+        <div className="relative h-full flex items-center justify-between px-5 md:px-8 gap-4">
           {/* Left: text — capped at 35% width */}
-          <div className="flex flex-col gap-2" style={{ maxWidth: '35%' }}>
-            <p className="text-white font-bold" style={{ fontSize: 22 }}>Hola, Carolina 👋</p>
-            <p className="text-white/85 leading-relaxed" style={{ fontSize: 14 }}>
+          <div className="flex flex-col gap-1 md:gap-2" style={{ maxWidth: '38%' }}>
+            <p className="text-white font-bold text-base md:text-[22px] leading-tight">Hola, Carolina 👋</p>
+            <p className="text-white/85 leading-relaxed text-[11px] md:text-sm hidden sm:block">
               Te ayudamos en prevenir y disminuir riesgos legales con tus trabajadores, junto con reforzar los vínculos laborales en tu organización ¡Estamos contigo!
             </p>
           </div>
           {/* Right: pills */}
-          <div className="flex flex-col gap-2 shrink-0">
-            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(226,75,74,0.25)', color: '#FCA5A5', border: '1px solid rgba(226,75,74,0.50)' }}>
-              <span className="w-2 h-2 rounded-full bg-red-400 shrink-0" />
+          <div className="flex flex-col gap-1.5 md:gap-2 shrink-0">
+            <span className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-semibold" style={{ background: 'rgba(226,75,74,0.25)', color: '#FCA5A5', border: '1px solid rgba(226,75,74,0.50)' }}>
+              <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-400 shrink-0" />
               2 alertas urgentes
             </span>
-            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(239,159,39,0.25)', color: '#FCD34D', border: '1px solid rgba(239,159,39,0.50)' }}>
-              <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+            <span className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-semibold" style={{ background: 'rgba(239,159,39,0.25)', color: '#FCD34D', border: '1px solid rgba(239,159,39,0.50)' }}>
+              <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-amber-400 shrink-0" />
               4 acciones en curso
             </span>
-            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(29,158,117,0.25)', color: '#6EE7B7', border: '1px solid rgba(29,158,117,0.50)' }}>
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+            <span className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-semibold" style={{ background: 'rgba(29,158,117,0.25)', color: '#6EE7B7', border: '1px solid rgba(29,158,117,0.50)' }}>
+              <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-emerald-400 shrink-0" />
               23 vínculos fortalecidos
             </span>
           </div>
         </div>
       </div>
 
-      {/* KPI Cards */}
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      {/* KPI Cards — 2×2 on mobile, 4 in a row on desktop */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
         {kpis.map(({ label, value, delta, deltaUp, color, bg, icon: Icon }) => (
-          <div key={label} className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-            <div className="flex items-start justify-between mb-3">
-              <p className="text-sm font-medium text-gray-500">{label}</p>
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: bg }}>
-                <Icon size={18} style={{ color }} />
+          <div key={label} className="bg-white rounded-xl p-3 md:p-4 shadow-sm border border-gray-100">
+            <div className="flex items-start justify-between mb-2 md:mb-3">
+              <p className="text-xs md:text-sm font-medium text-gray-500 leading-tight">{label}</p>
+              <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: bg }}>
+                <Icon size={16} style={{ color }} />
               </div>
             </div>
-            <p className="text-3xl font-bold text-gray-900 mb-1">{value}</p>
+            <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">{value}</p>
             <p className="text-xs" style={{ color: deltaUp ? '#E24B4A' : '#1D9E75' }}>
               {delta}
             </p>
@@ -174,11 +174,11 @@ export default function Dashboard() {
         ))}
       </div>
 
-      {/* Main grid */}
-      <div className="grid grid-cols-3 gap-4">
-        {/* Alerts table — 2 cols */}
-        <div className="col-span-2 bg-white rounded-xl shadow-sm border border-gray-100">
-          <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+      {/* Main grid — stacked on mobile, 3-col on desktop */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+        {/* Alerts table */}
+        <div className="md:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100">
+          <div className="flex items-center justify-between px-4 md:px-5 py-3 md:py-4 border-b border-gray-100">
             <h2 className="font-semibold text-gray-800 text-sm">Alertas Recientes</h2>
             <button
               className="flex items-center gap-1 text-xs font-medium hover:underline"
@@ -187,39 +187,41 @@ export default function Dashboard() {
               Ver todas <ChevronRight size={12} />
             </button>
           </div>
-          <div className="divide-y divide-gray-50">
-            {recentAlerts.map((alert) => {
-              const sev = severityColor[alert.severity]
-              const st = statusIcon[alert.status]
-              const StatusIcon = st.icon
-              return (
-                <div key={alert.id} className="flex items-center gap-4 px-5 py-3 hover:bg-gray-50 transition-colors">
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-800 truncate">{alert.title}</p>
-                    <p className="text-xs text-gray-400">{alert.colaborador} · {alert.area}</p>
+          <div className="overflow-x-auto">
+            <div className="divide-y divide-gray-50 min-w-[420px]">
+              {recentAlerts.map((alert) => {
+                const sev = severityColor[alert.severity]
+                const st = statusIcon[alert.status]
+                const StatusIcon = st.icon
+                return (
+                  <div key={alert.id} className="flex items-center gap-4 px-4 md:px-5 py-3 hover:bg-gray-50 transition-colors">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-gray-800 truncate">{alert.title}</p>
+                      <p className="text-xs text-gray-400">{alert.colaborador} · {alert.area}</p>
+                    </div>
+                    <span
+                      className="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full"
+                      style={{ color: sev.text, background: sev.bg }}
+                    >
+                      {alert.severity}
+                    </span>
+                    <div className="flex items-center gap-1 shrink-0">
+                      <StatusIcon size={14} style={{ color: st.color }} />
+                      <span className="text-xs text-gray-500 hidden xl:inline">{st.label}</span>
+                    </div>
                   </div>
-                  <span
-                    className="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full"
-                    style={{ color: sev.text, background: sev.bg }}
-                  >
-                    {alert.severity}
-                  </span>
-                  <div className="flex items-center gap-1 shrink-0">
-                    <StatusIcon size={14} style={{ color: st.color }} />
-                    <span className="text-xs text-gray-500 hidden xl:inline">{st.label}</span>
-                  </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Risk by area — 1 col */}
+        {/* Risk by area */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100">
-          <div className="px-5 py-4 border-b border-gray-100">
+          <div className="px-4 md:px-5 py-3 md:py-4 border-b border-gray-100">
             <h2 className="font-semibold text-gray-800 text-sm">Riesgo por Área</h2>
           </div>
-          <div className="px-5 py-4 flex flex-col gap-4">
+          <div className="px-4 md:px-5 py-4 flex flex-col gap-4">
             {riskByArea.map(({ area, risks, pct }) => (
               <div key={area}>
                 <div className="flex justify-between mb-1">
@@ -241,10 +243,10 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Bottom row */}
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      {/* Bottom row — stacked on mobile, 3-col on desktop */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mt-3 md:mt-4">
         {/* Cumplimiento normativo */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 md:p-5">
           <h2 className="font-semibold text-gray-800 text-sm mb-4">Cumplimiento Normativo</h2>
           <div className="flex flex-col gap-3">
             {[
@@ -278,7 +280,7 @@ export default function Dashboard() {
         </div>
 
         {/* Actividad reciente */}
-        <div className="col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+        <div className="md:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-4 md:p-5">
           <h2 className="font-semibold text-gray-800 text-sm mb-4">Actividad Reciente del Equipo</h2>
           <div className="flex flex-col gap-3">
             {[

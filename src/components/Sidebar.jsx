@@ -16,6 +16,7 @@ import {
   Database,
   UserCog,
   Bell,
+  X,
 } from 'lucide-react'
 import sygnalyLogo from '../assets/logo-sygnaly-blanco2.png'
 
@@ -68,19 +69,25 @@ const navSections = [
   },
 ]
 
-export default function Sidebar() {
+/* Shared nav content — rendered inside both desktop and mobile panels */
+function NavContent({ onClose }) {
   return (
-    <aside
-      className="flex flex-col shrink-0 h-full overflow-y-auto"
+    <div
+      className="flex flex-col h-full overflow-y-auto"
       style={{ width: 224, background: '#0F2744' }}
     >
-      {/* Logo */}
-      <div className="flex flex-col items-center px-5 pt-6 pb-5 border-b border-white/10">
-        <img
-          src={sygnalyLogo}
-          alt="Sygnaly"
-          style={{ width: 180 }}
-        />
+      {/* Logo row */}
+      <div className="flex items-center justify-between px-5 pt-6 pb-5 border-b border-white/10">
+        <img src={sygnalyLogo} alt="Sygnaly" style={{ width: 160 }} />
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="text-white/50 hover:text-white ml-2 shrink-0"
+            aria-label="Cerrar menú"
+          >
+            <X size={18} />
+          </button>
+        )}
       </div>
 
       {/* Nav */}
@@ -96,6 +103,7 @@ export default function Sidebar() {
                   <NavLink
                     to={to}
                     end={to === '/'}
+                    onClick={onClose}
                     className={({ isActive }) =>
                       `flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
                         isActive
@@ -130,6 +138,36 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
-    </aside>
+    </div>
+  )
+}
+
+/* ════════════════════════════════════════════════════════════════ */
+export default function Sidebar({ open, onClose }) {
+  return (
+    <>
+      {/* ── Desktop: always-visible flex column ── */}
+      <div className="hidden md:block shrink-0 h-full">
+        <NavContent />
+      </div>
+
+      {/* ── Mobile backdrop ── */}
+      <div
+        className={`md:hidden fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${
+          open ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      {/* ── Mobile slide-in panel ── */}
+      <div
+        className={`md:hidden fixed inset-y-0 left-0 z-50 transition-transform duration-300 ease-in-out ${
+          open ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        <NavContent onClose={onClose} />
+      </div>
+    </>
   )
 }
