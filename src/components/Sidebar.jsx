@@ -72,15 +72,18 @@ export default function Sidebar() {
   return (
     <aside
       className="flex flex-col shrink-0 h-full overflow-y-auto"
-      style={{ width: 224, background: '#000000' }}
+      style={{ width: 224, background: '#0F2744' }}
     >
       {/* Logo */}
       <div className="flex flex-col items-center px-5 pt-6 pb-5 border-b border-white/10">
         <img
           src={sygnalyLogo}
           alt="Sygnaly"
-          style={{ width: 148, filter: 'invert(1)' }}
+          style={{ width: 148, filter: 'invert(1) brightness(2)' }}
         />
+        <p className="text-[11px] mt-2 font-medium tracking-wide" style={{ color: '#FFFFFF', opacity: 0.6 }}>
+          Conectar para mejorar
+        </p>
       </div>
 
       {/* Nav */}
@@ -99,10 +102,11 @@ export default function Sidebar() {
                     className={({ isActive }) =>
                       `flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
                         isActive
-                          ? 'bg-white/15 text-white'
+                          ? 'text-white'
                           : 'text-white/60 hover:bg-white/10 hover:text-white'
                       }`
                     }
+                    style={({ isActive }) => isActive ? { background: '#185FA5' } : {}}
                   >
                     <Icon size={14} className="shrink-0" />
                     <span className="truncate">{label}</span>
