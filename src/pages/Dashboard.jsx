@@ -127,35 +127,31 @@ export default function Dashboard() {
         className="relative rounded-2xl overflow-hidden mb-6"
         style={{ height: 180, backgroundImage: `url(${bannerBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
-        {/* Base overlay — leve para no tapar la foto */}
-        <div className="absolute inset-0" style={{ background: 'rgba(15,39,68,0.25)' }} />
-        {/* Right-side gradient overlay más intenso para legibilidad del texto */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to left, rgba(15,39,68,0.90) 0%, rgba(15,39,68,0.75) 45%, rgba(15,39,68,0.0) 70%)' }} />
-        {/* Content — todo alineado a la derecha */}
-        <div className="relative h-full flex items-center justify-end px-8">
-          <div className="flex flex-col items-end gap-3 max-w-[480px]">
-            {/* Text */}
-            <div className="text-right">
-              <p className="text-white font-bold" style={{ fontSize: 22 }}>Hola, Carolina 👋</p>
-              <p className="text-white/85 mt-1.5 leading-relaxed" style={{ fontSize: 14 }}>
-                Te ayudamos en prevenir y disminuir riesgos legales con tus trabajadores, junto con reforzar los vínculos laborales en tu organización ¡Estamos contigo!
-              </p>
-            </div>
-            {/* Pills */}
-            <div className="flex gap-2 flex-wrap justify-end">
-              <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(226,75,74,0.25)', color: '#FCA5A5', border: '1px solid rgba(226,75,74,0.50)' }}>
-                <span className="w-2 h-2 rounded-full bg-red-400 shrink-0" />
-                2 alertas urgentes
-              </span>
-              <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(239,159,39,0.25)', color: '#FCD34D', border: '1px solid rgba(239,159,39,0.50)' }}>
-                <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
-                4 acciones en curso
-              </span>
-              <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(29,158,117,0.25)', color: '#6EE7B7', border: '1px solid rgba(29,158,117,0.50)' }}>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
-                23 vínculos fortalecidos
-              </span>
-            </div>
+        {/* Overlay: intenso a la izquierda → transparente en el centro → semitransparente a la derecha */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(15,39,68,0.88) 0%, rgba(15,39,68,0.80) 28%, rgba(15,39,68,0.05) 52%, rgba(15,39,68,0.55) 75%, rgba(15,39,68,0.70) 100%)' }} />
+        {/* Content */}
+        <div className="relative h-full flex items-center justify-between px-8 gap-4">
+          {/* Left: text — capped at 35% width */}
+          <div className="flex flex-col gap-2" style={{ maxWidth: '35%' }}>
+            <p className="text-white font-bold" style={{ fontSize: 22 }}>Hola, Carolina 👋</p>
+            <p className="text-white/85 leading-relaxed" style={{ fontSize: 14 }}>
+              Te ayudamos en prevenir y disminuir riesgos legales con tus trabajadores, junto con reforzar los vínculos laborales en tu organización ¡Estamos contigo!
+            </p>
+          </div>
+          {/* Right: pills */}
+          <div className="flex flex-col gap-2 shrink-0">
+            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(226,75,74,0.25)', color: '#FCA5A5', border: '1px solid rgba(226,75,74,0.50)' }}>
+              <span className="w-2 h-2 rounded-full bg-red-400 shrink-0" />
+              2 alertas urgentes
+            </span>
+            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(239,159,39,0.25)', color: '#FCD34D', border: '1px solid rgba(239,159,39,0.50)' }}>
+              <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+              4 acciones en curso
+            </span>
+            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold" style={{ background: 'rgba(29,158,117,0.25)', color: '#6EE7B7', border: '1px solid rgba(29,158,117,0.50)' }}>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+              23 vínculos fortalecidos
+            </span>
           </div>
         </div>
       </div>
