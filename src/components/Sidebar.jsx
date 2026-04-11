@@ -17,7 +17,7 @@ import {
   UserCog,
   Bell,
 } from 'lucide-react'
-import sygnalyLogo from '../assets/logo-sygnaly-blanco.png'
+import sygnalyLogo from '../assets/logo-sygnaly-blanco2.png'
 
 const navSections = [
   {
