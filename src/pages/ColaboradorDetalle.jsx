@@ -45,6 +45,35 @@ const nivelExposicion = {
 const NOTA_CALCULOS =
   '↗ Los cálculos de montos deben ser verificados con el departamento de contabilidad. Sygnaly no valida cifras.'
 
+/* ── Contextos predefinidos por colaborador (prototipo) ── */
+const contextosPredefinidos = {
+  '1': {
+    texto: 'Conversación informal con Rodrigo Soto (jefatura directa): "Jorge llegó tarde el lunes y cuando le dije algo me dijo que voy a ver qué opciones tengo. No sé si me está amenazando. Además siento que el resto del turno lo sigue a él, como que están tomando partido. No es lo que acordamos cuando lo contratamos."',
+    respuesta: `Del contenido analizado se desprenden las siguientes observaciones internas:\n\nEl tono sugiere una persona con alta reactividad emocional ante situaciones de injusticia percibida. Usa lenguaje de confrontación indirecta ('voy a ver qué opciones tengo', 'no es lo que acordamos'), lo que en contextos laborales suele preceder una acción formal.\n\nSe detecta distancia progresiva del vínculo: no busca resolver, busca validar su posición. Esto es consistente con las señales activas de Relacionamiento interno y Eventos con consecuencias legales.\n\nAcciones que podrían prevenir escalada: (1) conversación de escucha activa en los próximos 5 días sin agenda disciplinaria, (2) revisar si hay un agravio específico no resuelto que está alimentando la narrativa del colaborador, (3) evitar cualquier acción disciplinaria mientras el tono esté en este punto ya que podría ser interpretada como represalia.\n\nEsta lectura es orientativa, confidencial y de uso interno exclusivo. No puede ser citada en procesos legales o judiciales.`,
+    fecha: '08:51 · Hoy',
+  },
+  '2': {
+    texto: 'Captura de chat grupal de WhatsApp del equipo: Fernanda escribe "igual da lo mismo lo que uno diga, acá nunca cambia nada" y luego "yo ya sé cómo termina esto". Sus compañeros no responden.',
+    respuesta: `Del contenido analizado se desprenden las siguientes observaciones internas:\n\nSe detecta lenguaje de resignación activa y aislamiento social progresivo. La frase 'yo ya sé cómo termina esto' es una señal de desafección avanzada: el colaborador ya tiene una narrativa de cierre construida. El silencio del grupo ante sus mensajes refuerza el aislamiento percibido.\n\nAcciones que podrían prevenir escalada: (1) conversación individual urgente con tono de escucha, no de evaluación, (2) no iniciar ningún proceso disciplinario en este momento, (3) considerar si hay un evento específico que detonó este cambio de actitud en las últimas semanas.\n\nRiesgo de denuncia silenciosa: colaborador que no confronta directamente pero acumula.\n\nEsta lectura es orientativa, confidencial y de uso interno exclusivo. No puede ser citada en procesos legales o judiciales.`,
+    fecha: '10:14 · Hoy',
+  },
+  '3': {
+    texto: 'Nota de observación de jefatura: En reunión de equipo Patricio no participó, cuando le pregunté me dijo "para qué si igual no nos escuchan". Al salir escuché que le decía a un compañero que estaba viendo otras opciones laborales.',
+    respuesta: `Del contenido analizado se desprenden las siguientes observaciones internas:\n\nDesenganche emocional en fase media. No hay hostilidad abierta pero sí desconexión clara del proyecto colectivo. La frase 'para qué si igual no nos escuchan' indica que intentó comunicarse antes y sintió que no fue escuchado: hay un agravio previo no resuelto. El comentario sobre otras opciones laborales es una señal de que la decisión de salir puede estar en proceso.\n\nAcciones que podrían prevenir escalada: (1) la ventana de intervención todavía está abierta, actuar esta semana, (2) conversación individual donde se le pregunte específicamente qué necesitaría para sentirse escuchado, (3) revisar si hay una solicitud anterior de Patricio que quedó sin respuesta.\n\nEsta lectura es orientativa, confidencial y de uso interno exclusivo. No puede ser citada en procesos legales o judiciales.`,
+    fecha: '09:22 · Ayer',
+  },
+  '4': {
+    texto: 'Transcripción de audio: "Oye te cuento que la Mónica me llamó el fin de semana, estaba muy angustiada, me dijo que siente que la están aislando desde que pidió el cambio de horario, que nadie le habla igual y que si las cosas siguen así va a tener que hacer algo."',
+    respuesta: `Del contenido analizado se desprenden las siguientes observaciones internas:\n\nSe detecta percepción de represalia post-solicitud legítima. La colaboradora asocia directamente el cambio en el trato de sus compañeros con su solicitud de cambio de horario: si esa percepción es correcta, la empresa tiene exposición a tutela laboral por vulneración de dignidad. La frase 'va a tener que hacer algo' es una amenaza velada de acción formal.\n\nAcciones críticas: (1) no realizar ninguna acción disciplinaria sobre Mónica Torres hasta evaluar con abogado, (2) investigar si efectivamente hubo un cambio en el trato post-solicitud, (3) si es así, actuar sobre los pares o jefatura involucrados, no sobre ella.\n\nEsta lectura es orientativa, confidencial y de uso interno exclusivo. No puede ser citada en procesos legales o judiciales.`,
+    fecha: '11:03 · Ayer',
+  },
+  '5': {
+    texto: 'Intercambio de emails. Email de Héctor a RRHH: "Quiero dejar registro escrito de que el cambio de turno no fue consensuado conmigo. Lo acepto porque no tengo otra opción pero no significa que esté de acuerdo."',
+    respuesta: `Del contenido analizado se desprenden las siguientes observaciones internas:\n\nColaborador construyendo registro documental propio. Esta conducta es típica de quien está preparando una eventual reclamación formal: al enviar el email por escrito está generando evidencia de disconformidad con fecha y hora. La frase 'no tengo otra opción' sugiere que percibe coerción, lo que abre la puerta a despido indirecto si la situación escala.\n\nAcciones urgentes: (1) responder el email formalmente reconociendo su posición y abriendo diálogo, no ignorarlo, (2) revisar si el cambio de turno tiene respaldo documental (anexo firmado), si no lo tiene, regularizar de inmediato, (3) este email podría ser usado como evidencia en un eventual proceso.\n\nEsta lectura es orientativa, confidencial y de uso interno exclusivo. No puede ser citada en procesos legales o judiciales.`,
+    fecha: '14:37 · Lun 7 Abr',
+  },
+}
+
 /* ══════════════════════════════════════════════════════════════ */
 export default function ColaboradorDetalle() {
   const { id } = useParams()
@@ -56,13 +85,10 @@ export default function ColaboradorDetalle() {
   // Contexto adicional · ingreso libre
   const [contextoTexto, setContextoTexto]   = useState('')
   const [contextoModal, setContextoModal]   = useState(false)
-  const [contextoEntradas, setContextoEntradas] = useState([
-    {
-      texto: 'Conversación informal con Rodrigo Soto (jefatura directa): "Jorge llegó tarde el lunes y cuando le dije algo me dijo que voy a ver qué opciones tengo. No sé si me está amenazando. Además siento que el resto del turno lo sigue a él, como que están tomando partido. No es lo que acordamos cuando lo contratamos."',
-      respuesta: `Del contenido analizado se desprenden las siguientes observaciones internas:\n\nEl tono sugiere una persona con alta reactividad emocional ante situaciones de injusticia percibida. Usa lenguaje de confrontación indirecta ('voy a ver qué opciones tengo', 'no es lo que acordamos'), lo que en contextos laborales suele preceder una acción formal.\n\nSe detecta distancia progresiva del vínculo: no busca resolver, busca validar su posición. Esto es consistente con las señales activas de Relacionamiento interno y Eventos con consecuencias legales.\n\nAcciones que podrían prevenir escalada: (1) conversación de escucha activa en los próximos 5 días sin agenda disciplinaria, (2) revisar si hay un agravio específico no resuelto que está alimentando la narrativa del colaborador, (3) evitar cualquier acción disciplinaria mientras el tono esté en este punto ya que podría ser interpretada como represalia.\n\nEsta lectura es orientativa, confidencial y de uso interno exclusivo. No puede ser citada en procesos legales o judiciales.`,
-      fecha: '08:51 · Hoy',
-    },
-  ])
+  const [contextoEntradas, setContextoEntradas] = useState(() => {
+    const predefinido = contextosPredefinidos[id]
+    return predefinido ? [predefinido] : []
+  })
 
   if (!colaborador) {
     return (
