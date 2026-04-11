@@ -79,7 +79,7 @@ export default function Sidebar() {
         <img
           src={sygnalyLogo}
           alt="Sygnaly"
-          style={{ width: 148, filter: 'brightness(0) invert(1)' }}
+          style={{ width: 140 }}
         />
         <p className="text-[11px] mt-2 font-medium tracking-wide" style={{ color: '#FFFFFF', opacity: 0.6 }}>
           Conectar para mejorar
