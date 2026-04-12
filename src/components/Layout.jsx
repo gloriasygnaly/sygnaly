@@ -30,8 +30,13 @@ export default function Layout() {
       {/* ── Main content ──
           pt-14 on mobile to clear the fixed 56px top bar.
           On desktop (md+) no top bar → no extra padding. */}
-      <main className="flex-1 overflow-y-auto min-w-0 pt-14 md:pt-0">
-        <Outlet />
+      <main className="flex-1 overflow-y-auto min-w-0 pt-14 md:pt-0 flex flex-col">
+        <div className="flex-1">
+          <Outlet />
+        </div>
+        <footer className="py-4 text-center" style={{ fontSize: 11, color: '#9CA3AF' }}>
+          Sygnaly © 2026 · Gloria Maturana
+        </footer>
       </main>
     </>
   )
